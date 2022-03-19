@@ -131,7 +131,7 @@ const ResultsDropdown = ({
             focusedId={focusedId}
             key={i}
             setChannel={setChannel}
-            type="channel"
+            type="user"
             setToggleContainer={setToggleContainer}
           />
         ))
