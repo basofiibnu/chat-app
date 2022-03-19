@@ -42,7 +42,9 @@ const ChannelListContent = ({
   setIsCreating,
   setCreateType,
   setIsEditing,
+  setToggleContainer,
 }) => {
+  const { client } = useChatContext();
   const logout = () => {
     cookies.remove("username");
     cookies.remove("fullName");
@@ -55,6 +57,8 @@ const ChannelListContent = ({
     window.location.reload();
   };
 
+  const filters = { members: { $in: [client.userID] } };
+
   return (
     <Fragment>
       <Sidebar logout={logout} />
@@ -62,7 +66,7 @@ const ChannelListContent = ({
         <CompanyHeader />
         <ChannelSearch />
         <ChannelList
-          filters={{}}
+          filters={filters}
           channelRenderFilterFn={customChannelTeamFilter}
           List={(listProps) => (
             <TeamChannelList
@@ -72,14 +76,21 @@ const ChannelListContent = ({
               setIsCreating={setIsCreating}
               setCreateType={setCreateType}
               setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
             />
           )}
           Preview={(previewProps) => (
-            <TeamChannelPreview {...previewProps} type="team" />
+            <TeamChannelPreview
+              {...previewProps}
+              type="team"
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+            />
           )}
         />
         <ChannelList
-          filters={{}}
+          filters={filters}
           channelRenderFilterFn={customChannelMessagingFilter}
           List={(listProps) => (
             <TeamChannelList
@@ -89,10 +100,17 @@ const ChannelListContent = ({
               setIsCreating={setIsCreating}
               setCreateType={setCreateType}
               setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
             />
           )}
           Preview={(previewProps) => (
-            <TeamChannelPreview {...previewProps} type="messaging" />
+            <TeamChannelPreview
+              {...previewProps}
+              type="messaging"
+              setIsCreating={setIsCreating}
+              setIsEditing={setIsEditing}
+              setToggleContainer={setToggleContainer}
+            />
           )}
         />
       </div>
