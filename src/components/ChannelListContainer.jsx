@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { ChannelList, useChatContext } from "stream-chat-react";
 import Cookies from "universal-cookie";
 
-import { ChannelSearch, TeamChannelList, TeamChannelPreview } from "./";
+import { ChannelSearch, TeamChannelList, TeamChannelPreview } from ".";
 import HospitalIcon from "../assets/hospital.png";
 import LogoutIcon from "../assets/logout.png";
 
@@ -29,7 +29,7 @@ const CompanyHeader = () => (
   </div>
 );
 
-const ChanelListContainer = () => {
+const ChannelListContainer = () => {
   const logout = () => {
     cookies.remove("username");
     cookies.remove("fullName");
@@ -71,4 +71,4 @@ const ChanelListContainer = () => {
   );
 };
 
-export default ChanelListContainer;
+export default ChannelListContainer;
