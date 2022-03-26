@@ -19,7 +19,7 @@ const initialState = {
 
 const Auth = () => {
   const [form, setForm] = useState(initialState);
-  const [isSignup, setIsSignup] = useState(false);
+  const [isSignup, setIsSignup] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const switchMode = () => {
