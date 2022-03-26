@@ -35,6 +35,8 @@ const ChannelSearch = ({ setToggleContainer }) => {
         userResponse,
       ]);
 
+      console.log(channels, users);
+
       if (channels.length) setTeamChannels(channels);
       if (users.length) setDirectChannels(users);
     } catch (error) {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
+import { ThreeDots } from "react-loader-spinner";
 
 import { InviteIcon } from "../assets";
 
@@ -98,7 +99,9 @@ const UserList = ({ setSelectedUsers }) => {
   return (
     <ListContainer>
       {loading ? (
-        <div className="user-list__message">Loading users...</div>
+        <div className="user-list__message-loading">
+          <ThreeDots color="#005fff" />
+        </div>
       ) : (
         users?.map((user, i) => (
           <UserItem

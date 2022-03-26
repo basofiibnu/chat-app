@@ -3,6 +3,7 @@ import { useChatContext } from "stream-chat-react";
 
 import { UserList } from "./";
 import { CloseCreateChannel } from "../assets";
+import { motion } from "framer-motion";
 
 const ChannelNameInput = ({ channelName = "", setChannelName }) => {
   const { client, setActiveChannel } = useChatContext();
@@ -53,26 +54,40 @@ const CreateChannel = ({ createType, setIsCreating }) => {
 
   return (
     <div className="create-channel__container">
-      <div className="create-channel__header">
-        <p>
-          {createType === "team"
-            ? "Create a New Channel"
-            : "Send a Direct Message"}
-        </p>
-        <CloseCreateChannel setIsCreating={setIsCreating} />
-      </div>
-      {createType === "team" && (
-        <ChannelNameInput
-          channelName={channelName}
-          setChannelName={setChannelName}
-        />
-      )}
-      <UserList setSelectedUsers={setSelectedUsers} />
-      <div className="create-channel__button-wrapper" onClick={createChannel}>
-        <p>
-          {createType === "team" ? "Create Channel" : "Create Message Group"}
-        </p>
-      </div>
+      <motion.div
+        className="create-channel__container"
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{
+          type: "easeInOut",
+          duration: 0.5,
+        }}
+      >
+        <div className="create-channel__header">
+          <p>
+            {createType === "team"
+              ? "Create a New Channel"
+              : "Send a Direct Message"}
+          </p>
+          <CloseCreateChannel setIsCreating={setIsCreating} />
+        </div>
+        {createType === "team" && (
+          <ChannelNameInput
+            channelName={channelName}
+            setChannelName={setChannelName}
+          />
+        )}
+        <UserList setSelectedUsers={setSelectedUsers} />
+        <div className="create-channel__button-wrapper" onClick={createChannel}>
+          <p>
+            {createType === "team" ? "Create Channel" : "Create Message Group"}
+          </p>
+        </div>
+      </motion.div>
     </div>
   );
 };

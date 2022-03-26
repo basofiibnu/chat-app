@@ -1,5 +1,11 @@
 import React from "react";
-import { Channel, useChatContext, MessageTeam } from "stream-chat-react";
+import {
+  Channel,
+  useChatContext,
+  MessageTeam,
+  Message,
+} from "stream-chat-react";
+import { motion } from "framer-motion";
 
 import { ChannelInner, CreateChannel, EditChannel } from "./";
 
@@ -41,12 +47,28 @@ const ChannelContainer = ({
 
   return (
     <div className="channel__container">
-      <Channel
-        EmptyStateIndicator={EmptyState}
-        Message={(messageProps, i) => <MessageTeam key={i} {...messageProps} />}
+      <motion.div
+        className="channel__container"
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{
+          type: "easeInOut",
+          duration: 0.5,
+        }}
       >
-        <ChannelInner setIsEditing={setIsEditing} />
-      </Channel>
+        <Channel
+          EmptyStateIndicator={EmptyState}
+          Message={(messageProps, i) => (
+            <MessageTeam key={i} {...messageProps} />
+          )}
+        >
+          <ChannelInner setIsEditing={setIsEditing} />
+        </Channel>
+      </motion.div>
     </div>
   );
 };

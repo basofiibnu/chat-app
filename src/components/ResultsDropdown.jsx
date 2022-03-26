@@ -76,7 +76,7 @@ const SearchResult = ({
           name={channel.name}
           size={24}
         />
-        <p className="channel-search__result-text">{channel.name}</p>
+        <p className="channel-search__result-text">{channel.fullName}</p>
       </div>
     </div>
   );

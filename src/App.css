@@ -113,7 +113,7 @@ body {
 }
 
 .auth__form-container_fields-content_button {
-  margin-top: 2rem;
+  margin-top: 1.5;
   display: flex;
   justify-content: flex-start;
 }
@@ -391,6 +391,7 @@ body {
     #ffffff;
   border-radius: 9999px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.33);
+  cursor: pointer;
 }
 
 .channel-list__list__wrapper {
@@ -638,6 +639,7 @@ body {
 
 .channel-name-input__wrapper input::placeholder {
   font-weight: 300;
+  width: 100%;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -699,6 +701,12 @@ body {
   font-size: 16px;
   color: #2c2c30;
   margin: 20px;
+}
+
+.user-list__message-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-item__wrapper {
@@ -940,6 +948,9 @@ body {
   flex-direction: column;
 }
 
+.team-channel-list {
+}
+
 .team-channel-list__message {
   color: #ffffff;
   padding: 0 16px;
@@ -947,6 +958,10 @@ body {
 
 .team-channel-list__message.loading {
   height: 115px;
+}
+
+.team-channel-list p {
+  color: white;
 }
 
 .team-channel-list__header {
@@ -980,20 +995,14 @@ body {
   display: flex;
   align-items: center;
   background: rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
   font-weight: bold;
-  margin-right: 16px;
   cursor: pointer;
   z-index: 2;
 }
 
 .channel-preview__wrapper:hover {
   background: rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
   font-weight: bold;
-  margin-right: 16px;
   cursor: pointer;
 }
 
@@ -1823,4 +1832,8 @@ div.rta__autocomplete.str-chat__emojisearch {
   .channel-list__sidebar {
     display: none;
   }
+}
+
+p[role="listitem"] {
+  padding: 0 15px;
 }
