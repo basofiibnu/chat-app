@@ -35,7 +35,7 @@ const Auth = () => {
     setLoading(true);
     const { username, password, phoneNumber, avatarURL } = form;
 
-    const url = "http://localhost:5000/auth";
+    const url = "https://bsf-chat-app.herokuapp.com/auth";
 
     const {
       data: { token, userId, hashedPassword, fullName },
